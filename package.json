@@ -1,0 +1,13 @@
+{
+  "name": "KadaGuetouache",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Kada Guetouache",
+  "license": "MIT",
+  "devDependencies": {
+	"browser-sync": "^2.26.12",
+	"gulp": "^4.0.2",
+	"gulp-plumber": "^1.2.1",
+	"sass": "^1.20.1"
+ }
+}
