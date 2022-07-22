@@ -32,11 +32,16 @@ function server(cb) {
 	cb();
 }
 
+function reload(cb){ 
+	browserSync.reload()
+
+	cb()
+}
 
 function watcher(cb) {
 	watch( './scss/**/*.scss', styles )
-	watch( './scripts/*.js', browserSync.reload )
-	watch( './*.html' ).on( 'change', browserSync.reload )
+	watch( './scripts/*.js', reload )
+	watch( './*.html' ).on( 'change', reload )
 
 	cb();
 }
