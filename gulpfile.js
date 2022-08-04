@@ -1,6 +1,6 @@
 // Imports
 const { src, dest, series, watch } = require( 'gulp' );
-const sass = require( 'gulp-sass' );
+const sass = require( 'gulp-sass' )( require( 'sass' ) );
 const plumber = require( 'gulp-plumber' );
 const browserSync = require( 'browser-sync' ).create(  );
 
@@ -32,11 +32,6 @@ function server(cb) {
 	cb();
 }
 
-function reload(cb){ 
-	browserSync.reload()
-
-	cb()
-}
 
 function watcher(cb) {
 	watch( './scss/**/*.scss', styles )
@@ -44,6 +39,10 @@ function watcher(cb) {
 	watch( './*.html' ).on( 'change', reload )
 
 	cb();
+}
+
+function reload(){ 
+	browserSync.reload()
 }
 
 exports.default = series( styles, server, watcher )
