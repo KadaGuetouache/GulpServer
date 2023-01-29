@@ -2,33 +2,368 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="/styles/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="/styles/glider.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<script type="text/javascript" src="/scripts/glider.min.js"></script>
 	<title>Ripple Effect</title>
 </head>
-<body>
-	<header>
-		<div>
-			<a href="#">
-				<h1 class="text-4xl font-bold font-sans text-red-300">Privine</h1>
-			</a>
+<body class="overflow-x-hidden">
+	<div id="preloader">
+		<div id="container">
+			<div class="divider" aria-hidden="true"></div>
+			<p class="loading-text" aria-label="Loading">
+			<span class="letter" aria-hidden="true">L</span>
+			<span class="letter" aria-hidden="true">o</span>
+			<span class="letter" aria-hidden="true">a</span>
+			<span class="letter" aria-hidden="true">d</span>
+			<span class="letter" aria-hidden="true">i</span>
+			<span class="letter" aria-hidden="true">n</span>
+			<span class="letter" aria-hidden="true">g</span>
+			</p>
 		</div>
-		<nav class="absolute">
-			<ul class="flex flex-col w-[100%] bg-white">
-				<li class="p-1 w-full"></li><a href="#" class="text-lg">Home</a></li>
-				<li class="p-1 w-full"></li><a href="#" class="text-lg">About Us</a></li>
-				<li class="p-1 w-full"></li><a href="#" class="text-lg">Services</a></li>
-				<li class="p-1 w-full"></li><a href="#" class="text-lg">Projects</a></li>
-				<li class="p-1 w-full"></li><a href="#" class="text-lg">Pages</a></li>
-				<li class="p-1 w-full"></li><a href="#" class="text-lg">Blog</a></li>
-				<li class="p-1 w-full"></li><a href="#" class="text-lg">Contact</a></li>
-				<li class="p-1 w-full"></li><a href="#" class="text-lg">Get IT Support</a></li>
-			</ul>
-		</nav>
+	</div>
+	<header id="navbar" class="md:fixed animate slideDown top-0 bg-white w-[100%] z-50 shadow shadow-md">
+		<div class="2xl:max-w-[1600px] 2xl:mx-auto p-3 flex justify-between items-center">
+			<div>
+				<a href="#">
+					<h1 class="text-gray-700 text-3xl font-bold font-serif">furni.shop</h1>
+				</a>
+			</div>
+			<nav class="sm:static sm:top-unset sm:left-unset sm:block sm:bg-white z-50 absolute top-[8%] hidden left-0 w-[100%] bg-gray-500" id="main-navbar">
+				<ul class="sm:justify-center sm:flex">
+					<li class="sm:mx-[10px] text-center p-2">
+						<a href="#" class="sm:text-gray-700 text-white text-lg">Home</a>
+					</li>
+					<li class="sm:mx-[10px] text-center p-2">
+						<a href="#" class="sm:text-gray-700 text-white text-lg">About</a>
+					</li>
+					<li class="sm:mx-[10px] text-center p-2">
+						<a href="#" class="sm:text-gray-700 text-white text-lg">Features</a>
+					</li>
+					<li class="sm:mx-[10px] text-center p-2">
+						<a href="#" class="sm:text-gray-700 text-white text-lg">Contact</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="sm:w-[150px] sm:justify-around flex">
+				<div class="flex items-center justify-center cursor-pointer" id="search-btn">
+					<i class="fa fa-search text-gray-700 sm:block text-xl cursor-pointer"></i>
+					<span class="md:block hidden ml-5 text-sm text-gray-700" style="letter-spacing: -2px;">Ctrl b</span>
+				</div>
+				<div style="background-color: rgba(220,220,220, .4)" id="search-panel-bg" class="hidden z-50 select-none z-2 w-[100vw] h-[100vh] backdrop-blur-[20px] fixed top-[0] right-0"></div>
+				<div id="search-panel" class="md:w-[40%] z-50 hidden absolute top-[250%] right-[50%] translate-x-[50%] -translate-y-[50%]
+				w-[90%] bg-white p-8">
+					<form action="#" class="flex justify-between items-center">
+						<i class="fa fa-search sm:block text-xl text-gray-700 cursor-pointer mr-5"></i>
+						<input type="text" placeholder="Search for products"
+						class="border-b-2 outline-none p-2 w-[100%] mx-auto text-gray-700 bg-white">
+						<div class="ml-5 p-1 text-sm cursor-pointer text-gray-700">ESP</div>
+					</form>
+				</div>
+				<i class="sm:hidden rounded rounded-full ml-5 px-2 py-1 fa fa-bars text-2xl cursor-pointer" id="burger"></i>
+			</nav>
+		</div>
 	</header>
-	<main>
-		<section class="bg-gray-100 block w-full h-screen">
+	<main class="mt-[100px]">
+		<section class="2xl:max-w-[1600px] 2xl:mx-auto relative lg:justify-around md:flex-row flex flex-col-reverse">
+			<div id="patternId" class="lg:block lg:flex-2 animate slideLeft delay-300 hidden select-none">
+				<svg class="mx-auto" id="10015.io" width="130" height="200" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="translate(10, 10) rotate(0) skewX(0)"><svg width="10" height="10" viewBox="0 0 100 100"><g fill="#002d43" opacity="1"><circle cx="50" cy="50" r="50"></circle></g></svg></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="#ffffff"></rect><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern)"></rect></svg>
+			</div>
+			<div id="hero" class="lg:flex-4 animate slideRight delay-200 relative reveal">
+				<img src="/furniture.png" class="max-h-[600px]" alt="picture of room filled with minimalistic furniture generated by midjourney">
+				<i class="xl:-right-[1%] xl:text-2xl md:text-xl md:p-10 md:-right-[5%] sm:bottom-[-8%] absolute bottom-0 right-0 p-6 cursor-pointer fa-sharp fa-solid fa-down-long text-gray-500 backdrop-blur-[10px]" style="background-color: rgba(220,220,220, .1);"></i>
+			</div>
+			<div id="sliderNav" class="lg:flex-initial md:block animate slideRight m-auto w-[10%] hidden">
+				<div class="flex flex-col items-center justify-between mb-8 h-[80px]">
+					<i class="cursor-pointer fa-sharp fa-solid fa-chevron-up text-gray-600 bg-gray-200 w-[30px] h-[30px] flex justify-center items-center text-xl"></i>
+					<i class="cursor-pointer fa-sharp fa-solid fa-chevron-down text-gray-600 bg-gray-200 w-[30px] h-[30px] flex justify-center items-center text-xl"></i>
+				</div>
+				<div class="flex flex-col items-center">
+					<span>01</span>
+					<div class="w-[1px] h-[80px] bg-black"></div>
+					<span>06</span>
+				</div>
+			</div>
+			<div id="cta" class="xl:p-10 lg:p-8 lg:w-[30%] lg:left-[15%] lg:top-[20%] md:p-5 md:left-[3%] md:top-[30%] sm:w-[40%] sm:top-[20%] sm:left-[10%] animate slideLeft p-3 absolute backdrop-blur-[10px] top-[10%]" style="background-color: rgba(255,255,255, .5)">
+				<h2 class="xl:text-5xl lg:text-4xl font-serif text-3xl text-gray-700 font-bold">We Help You Make Modern Interior</h2>
+				<p class="text-gray-700">We will help you to make an elegant and luxurious interior designed by professional interior designer</p>
+			</div>
 		</section>
+		<section class="2xl:max-w-[1600px] 2xl:mx-auto mt-10 py-10">
+			<div id="brandSlider" class="animate slideDown bg-gray-400 p-5">
+				<h2 class="md:text-2xl sm:text-md text-gray-700 font-bold text-sm mb-5 text-center uppercase">trusted by over 1k+ companies</h2>
+				<div class="glider-contain">
+					<div class="glider" style="width:150px;height:50px;">
+						<img src="/images/PngItem_260688.png" alt="">
+						<img src="/images/entrepeur.png" alt="">
+						<img src="/images/fortune.png" alt="">
+						<img src="/images/mashable.png" alt="">
+						<img src="/images/inc.png" alt="">
+					</div>
+					<div role="tablist" class="dots"></div>
+				</div>
+			</div>
+			<div class="2xl:w-[100%] lg:mx-auto lg:flex lg:justify-between lg:text-left lg:w-[90%] p-3 mt-10 text-center">
+				<div id="deal-left" class="lg:max-w-[400px] animate slideLeft mb-5">
+					<p class="md:text-5xl font-serif text-gray-700 font-bold text-3xl mb-5">Hot deals for you</p>
+					<p>Online shipping for retails sales direct to consumers</p>
+				</div>
+				<div id="deal-right-1" class="lg:w-[200px] lg:flex lg:flex-col lg:justify-around animate slideRight delay-100 mb-5">
+					<i class="fa-solid fa-check-double"></i>
+					<p class="font-bold">1.5% cashback</p>
+					<p>online shipping for retails sales direct to consumers</p>
+				</div>
+				<div id="deal-right-2" class="lg:w-[200px] lg:flex lg:flex-col lg:justify-around animate slideRight delay-200 mb-5">
+					<i class="fa-solid fa-check-double"></i>
+					<p class="font-bold">30-day terms</p>
+					<p>online shipping for retails sales direct to consumers</p>
+				</div>
+				<div id="deal-right-3" class="lg:w-[200px] lg:flex lg:flex-col lg:justify-around animate slideRight delay-300 mb-5">
+					<i class="fa-solid fa-check-double"></i>
+					<p class="font-bold">Save Money</p>
+					<p>online shipping for retails sales direct to consumers</p>
+				</div>
+			</div>
+		</section>
+		<section class="2xl:max-w-[1600px] 2xl:mx-auto">
+			<div class="md:flex-row flex flex-col justify-between items-center w-[90%] mx-auto h-[250px] mb-8">
+				<div id="about-left" class="md:text-left text-center animate slideLeft text-gray-700">
+					<h2 class="text-5xl font-bold text-gray-700 font-serif mb-4">About Us</h2>
+					<div class="px-5">
+						<p>At Besnik Consultansy. we take pride in our values</p>
+						<p>--service, integrity, and excellence.</p>
+					</div>
+				</div>
+				<button id="about-right" class="md:mr-0 animate slideRight py-[10px] px-[30px] w-[90%] mx-auto bg-gray-200 max-w-[250px]">Learn more</button>
+			</div>
+			<div class="md:flex-row flex flex-col text-gray-700">
+				<div class="lg:text-left lg:flex-row md:w-[50%] flex flex-col justify-between h-[700px] text-center">
+					<div id="info-1" class="md:items-start animate slideLeft max-w-[300px] flex flex-col justify-between items-center h-[180px] w-[90%] mx-auto">
+						<h3 class="text-gray-700 text-5xl font-bold">1.</h3>
+						<p class="text-gray-700 text-xl font-bold">Who We Are</p>
+						<p>You get 2 weeks free trail to kick the Smarty tries. We want you to.</p>
+					</div>
+					<div id="info-2" class="md:items-start animate slideLeft delay-100 max-w-[300px] flex flex-col justify-between items-center h-[180px] w-[90%] mx-auto">
+						<h3 class="text-gray-700 text-5xl font-bold">2.</h3>
+						<p class="text-gray-700 text-xl font-bold">What Do We Do</p>
+						<p>You get 2 weeks free trail to kick the Smarty tries. We want you to.</p>
+					</div>
+					<div id="info-3" class="md:items-start animate slideLeft delay-200 max-w-[300px] flex flex-col justify-between items-center h-[180px] w-[90%] mx-auto">
+						<h3 class="text-gray-700 text-5xl font-bold">3.</h3>
+						<p class="text-gray-700 text-xl font-bold">How Do We Help</p>
+						<p>You get 2 weeks free trail to kick the Smarty tries. We want you to.</p>
+					</div>
+					<div id="info-4" class="md:items-start animate slideLeft delay-400 max-w-[300px] flex flex-col justify-between items-center h-[180px] w-[90%] mx-auto">
+						<h3 class="text-gray-700 text-5xl font-bold">4.</h3>
+						<p class="text-gray-700 text-xl font-bold">Create Success Story</p>
+						<p>You get 2 weeks free trail to kick the Smarty tries. We want you to.</p>
+					</div>
+				</div>
+				<div class="md:flex-row mx-auto flex flex-col">
+					<div class="lg:mr-3 lg:mb-unset mb-5">
+						<img id="mosiac-left-t" class="animate slideLeft delay-100 w-[300px] h-[330px] object-cover mt-5 mb-3 mx-auto" src="/images/1.png" alt="photo generated by midjourney">
+						<img id="mosiac-left-b" class="animate slideLeft delay-200 w-[300px] mx-auto" src="/images/2.png" alt="photo generated by midjourney">
+					</div>
+					<div>
+						<img id="mosiac-right-t" class="animate slideRight delay-100 w-[300px] mx-auto" src="/images/3.png" alt="photo generated by midjourney">
+						<img id="mosiac-right-b" class="animate slideRight delay-200 w-[300px] mt-4 h-[330px] object-cover mx-auto" src="/images/4.png" alt="photo generated by midjourney">
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="2xl:max-w-[1600px] 2xl:mx-auto">
+			<div class="flex justify-between items-center mt-4 w-[70%] mx-auto mb-3">
+				<h3 id="product-left" class="animate slideLeft text-gray-700 text-5xl font-serif font-bold">Products</h3>
+				<div id="product-right" class="animate slideRight text-gray-499">
+					<a href="#">See All</a>
+					<i class="fa-sharp fa-solid fa-right-long"></i>
+				</div>
+			</div>	
+			<div class="lg:grid-cols-3 md:grid-cols-2 md:grid-cols-2 grid-cols-1 grid mt-10">
+				<div id="product-1" class="animate fadeOut delay-100 relative w-[301px] mx-auto">
+					<div class="relative w-[251px] h-[200px] bg-gray-200 rounded rounded-md">
+						<span class="absolute -right1 -top-4 bg-red-400 rounded rounded-full h-[30px] w-[30px] flex justify-center items-center cursor-pointer">
+							<i class="fa-solid fa-cart-plus text-white"></i>
+						</span>
+						<div class="relative top-[11%] w-[90%] mx-auto">
+							<p class="text-gray-699 text-2xl">Modern Chair</p>
+							<p class="text-gray-699">$35.00</p>
+						</div>
+					</div>
+					<div class="-top-[23%] z-4 relative">
+						<img class="w-[201px]" src="/images/chair.png" alt="">
+					</div>
+				</div>
+				<div id="product-2" class="animate fadeOut delay-200 relative w-[301px] mx-auto">
+					<div class="relative w-[251px] h-[200px] bg-gray-200 rounded rounded-md">
+						<span class="absolute -right1 -top-4 bg-red-400 rounded rounded-full h-[30px] w-[30px] flex justify-center items-center cursor-pointer">
+							<i class="fa-solid fa-cart-plus text-white"></i>
+						</span>
+						<div class="relative top-[11%] w-[90%] mx-auto">
+							<p class="text-gray-699 text-2xl">Minimalistic Chair</p>
+							<p class="text-gray-699">$65.00</p>
+						</div>
+					</div>
+					<div class="-top-[23%] z-4 relative">
+						<img class="w-[201px]" src="/images/chair-1.png" alt="">
+					</div>
+				</div>
+				<div id="product-3" class="animate fadeOut delay-300 relative w-[301px] mx-auto">
+					<div class="relative w-[251px] h-[200px] bg-gray-200 rounded rounded-md">
+						<span class="absolute -right1 -top-4 bg-red-400 rounded rounded-full h-[30px] w-[30px] flex justify-center items-center cursor-pointer">
+							<i class="fa-solid fa-cart-plus text-white"></i>
+						</span>
+						<div class="relative top-[11%] w-[90%] mx-auto">
+							<p class="text-gray-699 text-2xl">Gray Couch</p>
+							<p class="text-gray-699">$195.00</p>
+						</div>
+					</div>
+					<div class="-top-[19%] z-4 relative">
+						<img class="w-[301px] mx-auto" src="/images/couch.png" alt="">
+					</div>
+				</div>
+				<div id="product-4" class="animate fadeOut delay-400 relative w-[301px] mx-auto">
+					<div class="relative w-[251px] h-[200px] bg-gray-200 rounded rounded-md">
+						<span class="absolute -right1 -top-4 bg-red-400 rounded rounded-full h-[30px] w-[30px] flex justify-center items-center cursor-pointer">
+							<i class="fa-solid fa-cart-plus text-white"></i>
+						</span>
+						<div class="relative top-[11%] w-[90%] mx-auto">
+							<p class="text-gray-699 text-2xl">Chest Drawer</p>
+							<p class="text-gray-699">$38.00</p>
+						</div>
+					</div>
+					<div class="-top-[19%] z-4 relative">
+						<img class="w-[201px]" src="/images/chest drawer.png" alt="">
+					</div>
+				</div>
+				<div id="product-5" class="animate fadeOut delay-500 relative w-[301px] mx-auto">
+					<div class="relative w-[251px] h-[200px] bg-gray-200 rounded rounded-md">
+						<span class="absolute -right1 -top-4 bg-red-400 rounded rounded-full h-[30px] w-[30px] flex justify-center items-center cursor-pointer">
+							<i class="fa-solid fa-cart-plus text-white"></i>
+						</span>
+						<div class="relative top-[11%] w-[90%] mx-auto">
+							<p class="text-gray-699 text-2xl">All Wooden Chest Drawer</p>
+							<p class="text-gray-699">$37.00</p>
+						</div>
+					</div>
+					<div class="-top-[19%] z-4 relative">
+						<img class="w-[201px]" src="/images/drawer-1.png" alt="">
+					</div>
+				</div>
+				<div id="product-6" class="animate fadeOut delay-600 relative w-[301px] mx-auto">
+					<div class="relative w-[251px] h-[200px] bg-gray-200 rounded rounded-md">
+						<span class="absolute -right1 -top-4 bg-red-400 rounded rounded-full h-[30px] w-[30px] flex justify-center items-center cursor-pointer">
+							<i class="fa-solid fa-cart-plus text-white"></i>
+						</span>
+						<div class="relative top-[11%] w-[90%] mx-auto">
+							<p class="text-gray-699 text-2xl">Desk Lamp</p>
+							<p class="text-gray-699">$53.00</p>
+						</div>
+					</div>
+					<div class="-top-[19%] z-4 relative">
+						<img class="w-[151px]" src="/images/lamp.png" alt="">
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="2xl:max-w-[1600px] 2xl:mx-auto">
+			<div id="section-4" class="md:w-[70%] animate slideRight mx-auto bg-gray-200 p-10 mb-10 rounded rounded-md">
+				<div class="flex flex-col justify-between h-[200px] mb-10 max-w-[400px] mx-auto">
+					<h2 class="text-gray-700 text-5xl font-serif text-center font-[500]">What our happy clients say</h2>
+					<p class="text-gray-700 text-center">File storage made easy-including powerful features you won't find anywhere else.Whether you're.</p>
+				</div>
+				<div class="md:flex-row flex justify-around flex-col items-center">
+					<img class="w-[300px]" src="/images/person.png" alt="photo generated by midjourney">
+					<div class="flex flex-col justify-around h-[300px]">
+						<p class="text-gray-700 font-bold font-serif text-xl">furni.shop</p>
+						<p class="text-gray-700 italic max-w-[350px]">File storage made easy-including powerful features you won't find anywhere else.Whether you're.</p>
+						<div>
+							<p class="text-gray-900">Larry Diamond</p>
+							<p class="text-gray-700 italic">Chef executive Officer</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>	
 	</main>
-	<footer></footer>
+	<footer class="bg-gray-800">
+		<div class="lg:w-[1600px] lg:mx-auto">
+			<div class="lg:flex-row flex flex-col justify-between items-center py-12 px-10">
+				<p id="footer-t-left" class="sm:text-6xl animate slideLeft mb-5 text-3xl text-white font-serif w-[60%]">Start your business today for $0+ state fees.</p>
+				<div>
+					<button id="footer-t-right-1" class="animate slideRigth mb-3 text-gray-700 bg-white py-[12px] px-[30px] rounded rounded-full text-lg">Get Started</button>
+					<button id="footer-t-right-2" class="animate slideRight delay-200 bg-gray-500 text-white py-[12px] px-[30px] rounded rounded-full text-lg">Contact Sales</button>
+				</div>
+			</div>
+			<hr class="bg-white">
+			<div class="lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 sm:text-left grid grid-cols-1 py-12 w-[90%] mx-auto text-center">
+				<div id="footer-1" class="sm:items-start animate slideLeft delay-100 flex flex-col justify-start items-center mb-5">
+					<p class="text-white font-serif text-3xl mb-3">furni.shop</p>
+					<p class="text-white mb-3">Optix seamlessly connects your members with the community resources.</p>
+					<ul class="flex justify-between items-center text-white w-[150px]">
+						<li>
+							<a href="#">
+								<i class="text-lg fa-brands fa-facebook-f"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="text-lg fa-brands fa-twitter"></i>	
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="text-lg fa-solid fa-link"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="text-lg fa-brands fa-pinterest"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div id="footer-2" class="animate slideLeft delay-200 flex flex-col justify-between text-white mb-5 h-[200px]">
+					<a href="#" class="font-bold">Entity types</a>
+					<a href="#">Knowledge base</a>
+					<a href="#">Security</a>
+					<a href="#">Privacy Policy</a>
+					<a href="#">Partners</a>
+					<a href="#">About us</a>
+					<a href="#">FAQS</a>
+				</div>
+				<div id="footer-3" class="animate slideLeft delay-300 flex flex-col text-white mb-5 justify-between h-[200px]">
+					<a href="#" class="font-bold">Services</a>
+					<a href="#">Contact us</a>
+					<a href="#">Press</a>
+					<a href="#">Payroot</a>
+					<a href="#">Library</a>
+					<a href="#">Blog</a>
+					<a href="#">Help center</a>
+				</div>
+				<div id="footer-4" class="animate slideRight delay-100 flex flex-col text-white mb-5 justify-between h-[200px]">
+					<a href="#" class="font-bold">Resouces</a>
+					<a href="#">Pricing</a>
+					<a href="#">FAQS</a>
+					<a href="#">Contact Support</a>
+					<a href="#">Privacy Policy</a>
+					<a href="#">Terms</a>
+				</div>
+				<div id="footer-5" class="animate slideRight delay-200 flex flex-col text-white mb-5 justify-between h-[200px]">
+					<a href="#" class="font-bold">Support</a>
+					<a href="#">Contact</a>
+					<a href="#">Affiliates</a>
+					<a href="#">Sitemap</a>
+					<a href="#">Cancelation Policy</a>
+					<a href="#">Pricing</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script type="text/javascript" src="/scripts/main.js"></script>	
+	<script type="text/javascript" src="/scripts/glider.js"></script>	
+	<script type="text/javascript" src="/scripts/animate.js"></script>	
 </body>
 </html>

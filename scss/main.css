@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slideUp{
+    @apply invisible transform transition-all translate-y-[100vw] blur-[10px] duration-500 ease-in-out;
+}
+
+.slideDown{
+    @apply invisible transform transition-all -translate-y-[100%] blur-[10px] duration-500 ease-in-out;
+}
+
+.slideLeft{
+    @apply invisible transform transition-all -translate-x-[100%] blur-[10px] duration-500 ease-in-out;
+}
+
+.slideRight{
+    @apply invisible transform transition-all translate-x-[100%] blur-[10px] duration-500 ease-in-out;
+}
+
+.fadeIn{
+    @apply invisible transform transition-all scale-[.5] blur-[10px] duration-500 ease-in-out;
+}
+
+.fadeOut{
+    @apply invisible transform transition-all scale-[1.5] blur-[10px] duration-500 ease-in-out;
+}
+
+.showFade{
+    @apply visible scale-[1] blur-[0];
+}
+
+.showSlide{
+    @apply visible translate-y-[0] translate-x-[0] blur-[0px];
+}
+
+.block{
+    @apply absolute top-[0] left-[0] w-[100%] h-[100%] bg-white visible z-50;
+}
+
+@media(prefers-reduce-motion){
+    .slideUp, .slideDown, .slideLeft, .slideRight, .fadeIn, .fadeOut{
+        @apply transition-none;
+    }
+}
